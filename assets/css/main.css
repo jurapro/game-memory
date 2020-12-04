@@ -25,10 +25,18 @@
 .card {
     width: 100px;
     height: 100px;
-    background-color: coral;
     border: 1px dotted black;
+    text-align: center;
+    padding: 1rem;
+    font-size: 3rem;
+}
 
+.image {
     background-image: url("../img/none.jpg");
     background-size: cover;
     background-position:center;
+}
+
+.open {
+    background-color: aquamarine;
 }
