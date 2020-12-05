@@ -17,7 +17,7 @@ class Card {
     }
 
     bindKeyEvents() {
-        this.$card.addEventListener('click', () => this.clickOnCard())
+        this.$card.addEventListener('click', () => this.clickOnCard());
     }
 
     clickOnCard() {
@@ -33,6 +33,8 @@ class Card {
                 this.closeCard();
                 break;
         }
+
+        this.game.updateGame();
     }
 
     selectCard() {
@@ -70,12 +72,12 @@ class Game {
 
     generateCards() {
         for (let i = 0; i < 8; i++) {
-            const el = this.generate(this.random(0, 9));
-            this.generate(el.value);
+            const el = this.generateCard(this.random(0, 9));
+            this.generateCard(el.value);
         }
     }
 
-    generate(value) {
+    generateCard(value) {
         const card = new Card(this, value);
         this.cards.push(card);
         return card;
@@ -103,17 +105,6 @@ class Game {
         this.getSelectedCard().forEach(card => card.openCard());
     }
 
-    start() {
-        this.loop();
-    }
-
-    loop() {
-        requestAnimationFrame(() => {
-            this.updateGame();
-            this.loop();
-        })
-    }
-
     updateGame() {
         if (this.getSelectedCard().length === 2 &&
             this.getSelectedCard()[0].value === this.getSelectedCard()[1].value) {
@@ -134,4 +125,3 @@ class Game {
 }
 
 const game = new Game();
-game.start();

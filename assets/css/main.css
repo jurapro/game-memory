@@ -5,13 +5,13 @@
 }
 
 #game {
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     display: flex;
 }
 
-.elements  {
+.elements {
     margin: auto;
     width: 400px;
     height: 400px;
@@ -34,7 +34,7 @@
 .image {
     background-image: url("../img/none.jpg");
     background-size: cover;
-    background-position:center;
+    background-position: center;
 }
 
 .open {
